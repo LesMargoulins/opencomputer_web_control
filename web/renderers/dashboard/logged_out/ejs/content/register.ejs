@@ -1,0 +1,56 @@
+<%
+%>
+
+<div class="row" style="height: 100%">
+    <div class="col"></div>
+        <div class="formblock col-md-12 col-lg-5 col-xl-4">
+            <img class="shadowed" src="/img/logo.png" style="display:block; margin:auto;"/>
+            <h3 style="text-align: center">PIXEL ADMIN</h3>
+            <h5 style="text-align: center">Register</h5>
+            <form action="/register" method="post" id="logform">
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <input type="text" class="form-control" id="username" name="username" placeholder="Username">
+                    <span class="errormsg" target="username">
+                        <ul>
+                        </ul>
+                    </span>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" class="form-control" id="password" name="password" placeholder="Password">
+                    <span class="errormsg" target="password">
+                        <ul>
+                        </ul>
+                    </span>
+                </div>
+                <div class="form-group">
+                    <input type="password" class="form-control" id="password2" name="password2" placeholder="Repeat">
+                    <span class="errormsg" target="password2">
+                        <ul>
+                        </ul>
+                    </span>
+                </div>
+                <div class="form-group">
+                    <label for="sponsor">Sponsorship code</label>
+                    <input type="text" class="form-control" id="sponsor" name="sponsor" placeholder="AAAAA-AAAAA-AAAAA-AAAAA-AAAAA-AAAAA">
+                    <span class="errormsg" target="sponsor">
+                        <ul>
+                        </ul>
+                    </span>
+                </div>
+                <div class="form-group">
+                    <span class="errormsg general">
+                        <ul>
+                        </ul>
+                    </span>
+                </div>
+                <button type="submit" class="btn btn-custom btn-block submitbtn">
+                    Register
+                </button>
+            </form>
+            <a href="/register">Forgot your password?</a>
+            <p style="padding-top: 40px; text-align: center">Already registered? <a href="/login">Sign in</a></p>
+        </div>
+    <div class="col"></div>
+</div>

@@ -1,0 +1,30 @@
+IMPORTANT TODO:
+-> Manage user: bloquer le changement de groupe vers un groupe supérieur au sien (ex: Administrateurs ne peuvent pas nommer super administrateur)
+    ---> Système de priorité de groupe
+
+TODO:
+-> Créer un programme parent pour redémarrer le serveur.
+    -> voir https://medium.com/@the1mills/diy-nodemon-5176fdcc1cfb OU https://github.com/nodejs/help/issues/923
+-> Créer un serveur de maintenance: 
+    -> Quand la commande "Update" est tapée, le serveur actuel se coupe, puis lance le serveur de maintenance se lance sur le même port.
+    -> Quand le serveur de maintenance est lancé, le serveur actuel essaie de se relancer
+    -> Si il y parvient, le serveur actuel coupe le serveur de maintenance et reprend le dessus
+-> Ajouter protection SSL
+-> Ajouter système de module via VM https://github.com/patriksimek/vm2
+-> use OAuth
+
+INSPI: 
+    https://themeforest.net/item/remark-responsive-bootstrap-4-admin-template/11989202
+    https://thememakker.com/templates/swift/hospital/index.html
+
+Appliquer:
+    https://medium.com/@nodepractices/were-under-attack-23-node-js-security-best-practices-e33c146cb87d
+
+Ajouter:
+    https://www.npmjs.com/package/express-minify
+    Pour minifier js etc (peut-être remplacer compileur sass actuel?)
+
+    https://www.npmjs.com/package/express-slow-down  ET  https://www.npmjs.com/package/express-rate-limit
+    Pour limiter les tentatives de dos / bruteforce...
+
+Créer système web notification custom

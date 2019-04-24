@@ -1,0 +1,26 @@
+.loadscreen {
+    position:fixed;
+    height:100%;
+    width:100%;
+    overflow:hidden;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 9999;
+    background-color: $primary;
+    background-image: -webkit-gradient(linear, left top, right top, from($primary), to($primarylight));
+    background-image: linear-gradient(to right, $primary 0%, $primarylight 100%);
+    //display: none;
+}
+
+.sk-double-bounce {
+    margin: 0 auto;
+    position: relative;
+    top: 50%;
+    transform: perspective(1px) translateY(-50%);
+
+    .sk-child {
+        background-color: #FFFFFF;
+    }
+}

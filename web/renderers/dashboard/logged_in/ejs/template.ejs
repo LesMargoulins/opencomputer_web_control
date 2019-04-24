@@ -1,0 +1,104 @@
+<%
+    appname = (!locals.appname?"UNNAMED APP":locals.appname);
+    title = (!locals.title?"":locals.title);
+    author = (!locals.author?"":locals.author);
+    description = (!locals.description?"":locals.description);
+    page = (!locals.page?"index":locals.page);
+    version = (!locals.version?"0.0":locals.version);
+    fs = locals.fs;
+    path = locals.path;
+    __ejsdir = locals.__ejsdir;
+    username = (!locals.username?"Anonymous":locals.username);
+%>
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title><%= title %></title>
+    <meta name="description" content="<%= description %>">
+    <meta name="author" content="<%= author %>">
+    <link rel="icon" type="image/png" href="/img/favicon.png" />
+
+    <link rel="stylesheet" href="css/bootstrap/bootstrap.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://malihu.github.io/custom-scrollbar/jquery.mCustomScrollbar.min.css">
+
+    <link rel="stylesheet" href="/loggedin/css/hamburgers/hamburgers.css">
+    <link rel="stylesheet" href="/loggedin/css/spinkit/spinkit.css">
+    <link rel="stylesheet" href="/loggedin/css/asScrollbar.css">
+    <link rel="stylesheet" href="/loggedin/css/asScrollable.css">
+    <link rel="stylesheet" href="/loggedin/css/remodal.css">
+    <link rel="stylesheet" href="/loggedin/css/remodal-default-theme.css">
+
+    <link rel="stylesheet" href="/loggedin/css/custom/custom.css">
+</head>
+
+<body class="">
+    <div class="page-hide"></div>
+    <div class="loadscreen">
+        <div class="sk-double-bounce">
+            <div class="sk-child sk-double-bounce1"></div>
+            <div class="sk-child sk-double-bounce2"></div>
+        </div>
+    </div>
+
+    <!-- Navbar -->
+    <%- include("components/navbar.ejs")  %>
+
+    <!-- Sidebar -->
+    <%- include("components/sidebar.ejs")  %>
+
+    <div class="page">
+        <div class="container-fluid page-content">
+
+            <!-- Page -->
+            <% if (fs.existsSync(path.join(__ejsdir, "/content/" + page + ".ejs"))) { %>
+                <%- include("content/" + page + ".ejs")  %>
+            <% } %>
+
+        </div>
+        <%- include("components/footer.ejs")  %>
+    </div>
+
+    <div data-remodal-id="modal">
+        <button data-remodal-action="close" class="remodal-close"></button>
+        <h1 id="remodal-title"></h1>
+        <p id="remodal-content">
+        </p>
+        <span id="remodal-buttons">
+        </span>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha384-tsQFqpEReu7ZLhBV2VZlAu7zcOV+rXbYlF2cqB8txI/8aZajjp4Bqd+V6D5IgvKT" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="/js/bootstrap.min.js"></script>
+
+    <script src="/loggedin/js/jquery.mousewheel.min.js"></script>
+    <script src="/loggedin/js/jquery-asScrollbar.min.js"></script>
+    <script src="/loggedin/js/jquery-asScrollable.min.js"></script>
+    <script src="https://malihu.github.io/custom-scrollbar/jquery.mCustomScrollbar.concat.min.js"></script>
+
+    <script src="/loggedin/js/sidebar.js"></script>
+    <script src="/loggedin/js/modal.js"></script>
+    <script src="/loggedin/js/fullscreenManager.js"></script>
+    <script src="/loggedin/js/actions.js"></script>
+
+    <script src="/loggedin/js/remodal.min.js"></script>
+
+    <!-- Page Footer -->
+    <% if (fs.existsSync(path.join(__ejsdir, "/footer/" + page + ".ejs"))) { %>
+        <%- include("footer/" + page + ".ejs")  %>
+    <% } %>
+
+    <script src="/loggedin/js/loadscreen.js"></script>
+
+    <script src="/js/socket.io.js"></script>
+    <script>
+    var socket = io.connect('dashboard.presta.com:3000');
+    </script>
+
+</body>
+</html>

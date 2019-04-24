@@ -1,0 +1,12 @@
+  <script src="https://www.google.com/recaptcha/api.js?render=<%= recaptcha %>"></script>
+  <script>
+  function generateCaptcha() {
+      grecaptcha.execute('<%= recaptcha %>', {action: 'login'}).then(function(token) {
+          setCaptchaToken(token);
+      });
+  }
+
+  grecaptcha.ready(function() {
+      generateCaptcha();
+  });
+  </script>

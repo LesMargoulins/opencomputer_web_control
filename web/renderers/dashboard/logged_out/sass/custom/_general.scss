@@ -1,0 +1,97 @@
+body {
+    background-color: rgb(233, 244, 252);
+    background: url($background-image) no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+.cover {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+.formblock {
+    padding: 20px;
+    color: $color;
+    background-color: $formblockbg;
+
+    -webkit-box-shadow: 0 4px 4px rgba(0, 0, 0, .3);
+    -moz-box-shadow: 0 4px 4px rgba(0, 0, 0, .3);
+    box-shadow: 0 4px 4px rgba(0, 0, 0, .3);
+    margin: auto;
+    margin-top: 20vh;
+    border-radius: 3px;
+}
+
+.shadowed {
+    -webkit-filter: drop-shadow(0px 2px 3px rgba(0, 0, 0, 0.5));
+    filter: drop-shadow(0px 2px 3px rgba(0, 0, 0, 0.5));
+}
+
+a {
+    color: $colorlink;
+
+    &:hover, &:focus, &:active {
+        color: $colorlinkactive;
+    }
+}
+
+.btn-custom {
+    color: #FFFFFF;
+    background-color: $primary;
+    background-image: -webkit-gradient(linear, left top, right top, from($primary), to($primarylight));
+    background-image: linear-gradient(to right, $primary 0%, $primarylight 100%);
+
+    &:hover, &:focus {
+        background-color: $primary;
+        background-image: -webkit-gradient(linear, left top, right top, from($primary), to($primarylight));
+        background-image: linear-gradient(to right, $primary 0%, $primarylight 100%);    
+    }
+
+    &:focus {
+        box-shadow: 0 0 0 .2rem rgba($primary,.5);
+    }
+}
+
+.errormsg {
+    color: $errorcolor;
+    font-weight: bold;
+}
+
+.errormsg ul {
+    list-style: none;
+    padding-left: 20px;
+}
+
+.errormsg.general ul {
+    padding-left: 0px;
+}
+
+@media (max-width: 991.98px) {
+    .cover {
+        display: none;
+    }
+
+    .formblock {
+        color: #FFFFFF;
+        background: rgba(0, 0, 0, 0.7);
+        margin-top: 0;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        border-radius: 0px;
+    }
+
+    .shadowed {
+        -webkit-filter: none;
+        filter: none;
+    }    
+}

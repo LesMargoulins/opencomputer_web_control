@@ -1,0 +1,20 @@
+  <script src="https://www.google.com/recaptcha/api.js?render=<%= recaptcha %>"></script>
+  <script>
+    function generateCaptcha() {
+        grecaptcha.execute('<%= recaptcha %>', {action: 'register'}).then(function(token) {
+            setCaptchaToken(token);
+        });
+    }
+
+    grecaptcha.ready(function() {
+        generateCaptcha();
+    });
+
+    $( document ).ready(function() {
+        $("#sponsor").mask('AAAAA-AAAAA-AAAAA-AAAAA-AAAAA-AAAAA', {'translation': {
+                A: {pattern: /[A-Z0-9]/},
+            }
+        });
+    });
+
+  </script>

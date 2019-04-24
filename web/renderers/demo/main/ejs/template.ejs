@@ -1,0 +1,42 @@
+<%
+    appname = (!locals.appname?"UNNAMED APP":locals.appname);
+    title = (!locals.title?"":locals.title);
+    author = (!locals.author?"":locals.author);
+    description = (!locals.description?"":locals.description);
+    page = (!locals.page?"index":locals.page);
+    version = (!locals.version?"0.0":locals.version);
+    fs = locals.fs;
+    path = locals.path;
+    __ejsdir = locals.__ejsdir;
+    recaptcha = locals.recaptcha;
+%>
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="icon" type="image/png" href="/img/favicon.png" />
+
+    <title><%= title %> | <%= appname %></title>
+    <meta name="description" content="<%= description %>">
+    <meta name="author" content="<%= author %>">
+
+    <link rel="stylesheet" href="/css/test.css">
+</head>
+
+<body>
+    <!-- Page - <%= page %> -->
+    <% if (fs.existsSync(path.join(__ejsdir, "/content/" + page + ".ejs"))) { %>
+        <%- include("content/" + page + ".ejs")  %>
+    <% } %>
+
+    <script src="/js/test.js"></script>
+
+    <% if (fs.existsSync(path.join(__ejsdir, "/footer/" + page + ".ejs"))) { %>
+        <%- include("footer/" + page + ".ejs")  %>
+    <% } %>
+
+</body>
+</html>
+

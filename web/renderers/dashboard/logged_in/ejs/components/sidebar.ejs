@@ -1,0 +1,54 @@
+<%
+    sidemenu =  (!locals.sidemenu?{}:locals.sidemenu);
+%>
+
+<nav id="sidebar">
+    <div class="sbcontent">
+        <ul class="menu">
+
+            <% function isMenuItemSelected(submenu) {
+                for (k = 0; k < submenu.length; k++) {
+                    if (submenu[k].data.page == page)
+                        return true;
+                }
+                return false;
+            } %>
+
+            <% function isCategoryEmpty(category) {
+                for (k = 0; k < category.menu.length; k++) {
+                    if (category.menu[k].submenu.length > 0)
+                        return false;
+                }
+                return true;
+            } %>
+
+            <% for (i = 0; i < sidemenu.length; i++) { %>
+                <% if (!isCategoryEmpty(sidemenu[i])) { %>
+
+                <li class="menu-category"><%= sidemenu[i].title %></li>
+
+                <% for (j = 0; j < sidemenu[i].menu.length; j++) { %>
+                    <% if (sidemenu[i].menu[j].submenu.length > 0) { %>
+                    <li class="menu-item has-sub <%= isMenuItemSelected(sidemenu[i].menu[j].submenu)?'selected':'' %>">
+                        <span class="selector"></span>
+                        <a href="javascript:void(0)">
+                            <i class="menu-item-icon <%= sidemenu[i].menu[j].icon %>"></i><span class="menu-item-title"><%= sidemenu[i].menu[j].title %></span><i class="fas fa-chevron-right menu-item-arrow"></i>
+                        </a>
+                        <ul class="menu-sub" <%= isMenuItemSelected(sidemenu[i].menu[j].submenu)?"style=display:block;":"" %> >
+                            <% for (w = 0; w < sidemenu[i].menu[j].submenu.length; w++) { %>
+                                <li class="menu-item <%= sidemenu[i].menu[j].submenu[w].data.page==page?'selected':'' %>">
+                                    <span class="selector"></span>
+                                    <a href="<%= sidemenu[i].menu[j].submenu[w].data.href %>">
+                                        <span class="menu-item-title"><%= sidemenu[i].menu[j].submenu[w].title %></span>
+                                    </a>
+                                </li>
+                            <% } %>
+                        </ul>
+                    </li>
+
+
+            <% }}}} %>
+
+        </ul>
+    </div>
+</nav>

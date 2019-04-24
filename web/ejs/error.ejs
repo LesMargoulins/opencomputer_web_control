@@ -1,0 +1,24 @@
+<%
+    title = (!locals.title?"":locals.title)
+    description = (!locals.description?"":locals.description)
+    version = (!locals.version?"0.0":locals.version)
+%>
+<!doctype html>
+
+<html lang="en" class="theme-dark">
+<head>
+    <meta charset="utf-8">
+
+    <title><%= title %></title>
+    <meta name="description" content="DESCRIPTION">
+    <meta name="author" content="AUTHOR">
+    <link rel="icon" type="image/png" href="/img/favicon.png" />
+
+    <link rel="stylesheet" href="css/main.css?v=<%= version %>">
+
+</head>
+
+<body>
+    <h1><%= description %></h1>
+</body>
+</html>

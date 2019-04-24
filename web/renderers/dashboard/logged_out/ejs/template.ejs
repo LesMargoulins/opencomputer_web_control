@@ -1,0 +1,58 @@
+<%
+    appname = (!locals.appname?"UNNAMED APP":locals.appname);
+    title = (!locals.title?"":locals.title);
+    author = (!locals.author?"":locals.author);
+    description = (!locals.description?"":locals.description);
+    page = (!locals.page?"index":locals.page);
+    version = (!locals.version?"0.0":locals.version);
+    fs = locals.fs;
+    path = locals.path;
+    __ejsdir = locals.__ejsdir;
+    recaptcha = locals.recaptcha;
+%>
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="icon" type="image/png" href="/img/favicon.png" />
+
+    <title><%= title %> | <%= appname %></title>
+    <meta name="description" content="<%= description %>">
+    <meta name="author" content="<%= author %>">
+
+    <link rel="stylesheet" href="css/bootstrap/bootstrap.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="/loggedout/css/custom/custom.css">
+</head>
+
+<body class="">
+
+    <span class="cover"></span>
+
+    <div class="page">
+        <div class="container-fluid">
+
+            <!-- Page - <%= page %> -->
+            <% if (fs.existsSync(path.join(__ejsdir, "/content/" + page + ".ejs"))) { %>
+                <%- include("content/" + page + ".ejs")  %>
+            <% } %>
+
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha384-tsQFqpEReu7ZLhBV2VZlAu7zcOV+rXbYlF2cqB8txI/8aZajjp4Bqd+V6D5IgvKT" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="/js/jquery.mask.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/loggedout/js/actions.js"></script>
+
+    <% if (fs.existsSync(path.join(__ejsdir, "/footer/" + page + ".ejs"))) { %>
+        <%- include("footer/" + page + ".ejs")  %>
+    <% } %>
+
+</body>
+</html>
+

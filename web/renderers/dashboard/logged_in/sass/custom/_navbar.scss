@@ -1,0 +1,162 @@
+#navbar {
+    background-color: $navbar-background-color;
+
+    height: 64px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+
+    z-index: 999;
+
+    -webkit-box-shadow: 0 2px 4px rgba(0, 0, 0, .1);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, .1);
+}
+
+#navbar-header {
+    background-color: $primary;
+    background-image: -webkit-gradient(linear, left top, right top, from($primary), to($primarylight));
+    background-image: linear-gradient(to right, $primary 0%, $primarylight 100%);
+
+    width: 300px;
+    height: 64px;
+
+    overflow: hidden;
+
+    position: fixed;
+    left: 0;
+    top: 0;
+
+    -webkit-transition: left 0.4s; /* Safari */
+    -moz-transition: left 0.4s;
+    -o-transition: left 0.4s;
+    transition: left 0.4s;
+}
+
+#navbar-content {
+    position: relative;
+    box-sizing: border-box;
+    height: 64px;
+    margin-left: 300px;
+    margin-right: 0px;
+
+    padding: 0;
+    padding-right: 16px;
+
+    -webkit-transition: margin-left 0.4s, margin-right 0.4s;
+    -moz-transition: margin-left 0.4s, margin-right 0.4s;
+    -o-transition: margin-left 0.4s, margin-right 0.4s;
+    transition: margin-left 0.4s, margin-right 0.4s;
+}
+
+.navbar-header-logo {
+    line-height: 64px;
+    position: fixed;
+    top: 8px;
+    left: 8px;
+    height: 48px;
+    width: 48px;
+    margin: 0px;
+    padding: 0px;
+    border: none;
+
+    -webkit-transition: left 0.4s; /* Safari */
+    -moz-transition: left 0.4s;
+    -o-transition: left 0.4s;
+    transition: left 0.4s;
+}
+
+.navbar-header-text {
+    line-height: 64px;
+    position: fixed;
+    top: 0px;
+    left: 64px;
+    color: $navbar-header-color;
+    font-size: 20px;
+    font-weight: bold;
+
+    -webkit-transition: left 0.4s; /* Safari */
+    -moz-transition: left 0.4s;
+    -o-transition: left 0.4s;
+    transition: left 0.4s;
+}
+
+.navbar-tools {
+    float: left;
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+    line-height: 64px;
+    padding: 0;
+}
+
+.navbar-tools-right {
+    float: right;
+}
+
+.navbar-item {
+    float: left;
+    display: block;
+    list-style: none;
+}
+
+.navbar-item-link {
+    color: $navbar-color;
+    text-decoration: none;
+    font-size: 20px;
+    min-height: 64px;
+    padding: 1.5rem;
+    padding-left: 12px;
+    padding-right: 12px;
+
+    &:hover, &:focus {
+        color: $navbar-hover-color;
+        text-decoration: none;    
+    }
+
+    &:active {
+        color: $navbar-active-color;
+        text-decoration: none;
+    }
+}
+
+.navtoggler {
+    padding-left: 16px;
+    padding-right: 8px;
+}
+
+.hamburger {
+    padding: 0;
+}
+
+.page {
+    margin-top: 64px;
+}
+
+@media (max-width: 575.98px) {
+    #navbar-content {
+        margin-right: -300px;
+    }
+}
+
+
+//Sidebar is closed
+.closed {
+    #navbar-header {
+        left: -300px;
+    }
+
+    .navbar-header-logo {
+        left: -308px;
+    }
+    
+    .navbar-header-text {
+        left: -364px;
+    }
+
+    #navbar-content {
+        margin-left: 0px;
+        margin-right: 0px;
+    }
+}
+

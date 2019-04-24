@@ -1,0 +1,20 @@
+body {
+    background-color: $background-color;
+    overflow-x: hidden;
+}
+
+a, a:active, a:hover, a:focus, button:active, button:hover, button:focus {
+    outline: 0;
+    -moz-outline-style: none;
+    outline-style: none;
+    text-decoration: none;
+    color: inherit;
+}
+
+.container-fluid {
+    padding: 0px;
+}
+
+[class*="col-"] {
+    margin-bottom: 15px;
+}

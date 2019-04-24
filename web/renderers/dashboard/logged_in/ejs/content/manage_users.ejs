@@ -1,0 +1,82 @@
+<%
+%>
+
+<div class="row">
+    <h1 style="padding: 15px;">Users Management</h1>
+    <div class="col-xxl-12 col-lg-12 ">
+        <div class="card border-0 flex-fill">
+            <div class="card-header border-0">
+                Users List
+                <span class="card-tools">
+                    <!--a class="card-tool close" target-closest-element=".card" parent-of-target href="#"><i class="fas fa-times"></i></a-->
+                    <a class="card-tool minimise" target-parent=".card" target-element=".card-body" href="#"><i class="fas fa-minus"></i></a>
+                    <!--a class="card-tool fullscreentoggler" target-closest-element=".card" href="#"><i class="fas fa-expand"></i></a-->
+                </span>
+            </div>
+            <div class="card-body border-0 nopadding">
+                <div class="row" style="padding: 10px; padding-bottom: 0px;">
+                    <div class="col-md-12 col-lg-6 tableinput til nomargin">
+                        <label>
+                            Show
+                            <select class="custom-select noAppearance users_show" style="width: auto;">
+                                <option value="10" selected>10</option>
+                                <option value="25">25</option>
+                                <option value="50">50</option>
+                                <option value="100">100</option>
+                            </select>
+                            entries
+                        </label>
+                    </div>
+                    <div class="col-md-12 col-lg-6 tableinput tir nomargin">
+                        <label>
+                            Search:
+                            <input type="text" class="form-control form-control-sm users_search" value="" style="width: auto; display: inline-block;" maxlength="20" placeholder="Search..."/>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="table-responsive customtable" style="position: relative;">
+                    <div class="table-loader" style="display:none;">
+                            <div class="sk-double-bounce">
+                                <div class="sk-child sk-double-bounce1"></div>
+                                <div class="sk-child sk-double-bounce2"></div>
+                            </div>
+                    </div>
+                    <table class="table table-hover nomargin">
+                        <thead class="thead-dark">
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Username</th>
+                                <th scope="col">Group</th>
+                                <th scope="col">Personnal Authorizations</th>
+                                <th scope="col">Access</th>
+                                <th scope="col">Score</th>
+                                <th scope="col">Created At</th>
+                                <th scope="col">Updated At</th>
+                                <th scope="col" style="text-align: center;">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody id="users_table_body">
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="row" style="padding: 10px; padding-bottom: 0px;">
+                    <div class="col-md-12 col-lg-6 tableinput til nomargin">
+                        <label>
+                            Total: <span class="totalCount"></span>
+                        </label>
+                    </div>
+                    <div class="col-md-12 col-lg-6 tableinput tir nomargin">
+                        <label>
+                            page
+                            <button class="btn btn-primary prev" style="width: auto; display: inline-block;"><i class="fas fa-chevron-left"></i></button>
+                            <input type="text" class="form-control users_page" style="padding: 0px 5px; width: auto; display: inline-block;" value="0"/>
+                            <button class="btn btn-primary next" style="width: auto; display: inline-block;"><i class="fas fa-chevron-right"></i></button>
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

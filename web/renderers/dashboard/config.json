@@ -1,0 +1,7 @@
+{
+    "id": "dashboard",
+    "order": 0,
+    "container": true,
+    "vhost": "dashboard.presta.com",
+    "subdomain": null
+}
