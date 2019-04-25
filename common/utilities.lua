@@ -187,11 +187,14 @@ local function args_to_string(separator, ...)
 	local i
 	local ret
 
-	ret = ""
-	i = 1
-	args = {...}
+	i = 2
+	args = {... }
+	ret = ''
+	if args[1] then
+		ret = tostring(args[1])
+	end
 	while args[i] do
-		ret = ret .. tostring(args[i])
+		ret = ret .. separator .. tostring(args[i])
 		i = i + 1
 	end
 	return ret

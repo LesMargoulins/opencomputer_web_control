@@ -4,12 +4,25 @@
 --
 
 local net = require 'internet'
+local os = require 'os'
+local event = require 'event'
 local connexion = require 'common.connexion'
+local code = require 'codes'
 
-local con = net.open('glastis.com', 6564)
 
---while con do
-    connexion.send(con, 'here is a test captain', 'arg1', 'arg2', 132)
-    print("sent")
---    os.sleep(4)
---end
+function core()
+    local sock
+    local req
+
+    sock = net.open('glastis.com', 8098)
+    while sock do
+        req = connexion.rcv_req(sock)
+        if not code.check(req[1], req[2], req[3]) then
+            connexion.send('400 INVALID_REQUEST\r\n')
+        else
+            connexion.send(sock, code.exec(req[1], req[2], req[3]))
+        end
+    end
+end
+
+core()
