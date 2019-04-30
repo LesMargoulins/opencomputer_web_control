@@ -32,11 +32,14 @@ connexion.rcv = rcv
 
 local function rcv_req(sock)
     local req
+    local str
 
-    req = utilities.split(rcv(sock), separator)
+    str = tostring(rcv(sock))
+    req = utilities.split(str, separator)
     if #req > 3 then
         return { req[1], req[2], req[3] }
     end
+    req[1] = tonumber(req[1])
     return req
 end
 connexion.rcv_req = rcv_req
