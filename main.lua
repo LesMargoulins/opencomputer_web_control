@@ -15,10 +15,11 @@ function core()
     local req
 
     sock = net.open('glastis.com', 8098)
+    connexion.send(sock, '101 WAITING')
     while sock do
         req = connexion.rcv_req(sock)
         if not code.check(req[1], req[2], req[3]) then
-            connexion.send('400 INVALID_REQUEST\r\n')
+            connexion.send(sock, '400 INVALID_REQUEST\r\n')
         else
             connexion.send(sock, code.exec(req[1], req[2], req[3]))
         end
