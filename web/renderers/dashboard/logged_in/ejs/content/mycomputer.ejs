@@ -1,0 +1,37 @@
+<%
+    computer_id = (!locals.computer_id?0:locals.computer_id);
+%>
+
+<div class="row nopadding nomargin" style="position: absolute; top: 0; bottom: 0; left: 0; right: 0">
+    <div class="computer" style="width: 100%; padding: 0; margin: 0;">
+    </div>
+    <span style="background-color: #FFF; position: absolute; left: 0; right: 0; bottom: 0px; top: 82px;">
+        <div id="editor" style="position: absolute; left: 0; right: 0; bottom: 0px; top: 0px; display:none;">print("Hello World")</div>
+        <span id="editor_form" style="display: none">
+            <form>
+                <div class="form-group">
+                    <label for="file">File Name and Path</label>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="basic-addon1">/home/</span>
+                        </div>
+                        <input type="text" class="form-control" id="file" name="file" placeholder="file.lua">
+                    </div>
+                </div>
+                <button id="saveFile" class="btn btn-primary" style="width: 100%;">Save</button>
+            </form>
+        </span>
+        <span id="editor_button" style="display: none">
+            <i class="fas fa-save"></i>
+        </span>
+
+        <div id="code" style="position: absolute; left: 0; right: 0; bottom: 0px; top: 0px;">
+            <div style="background-color: #F5F5F5; margin: 25px; padding: 20px;">
+                <h2 id="explorer_path" style="">/home</h2>
+                <table class="explorer">
+                </table>
+            </div>
+        </div>
+
+    </span>
+</div>

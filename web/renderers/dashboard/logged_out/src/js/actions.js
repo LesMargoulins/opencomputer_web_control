@@ -19,6 +19,8 @@ function generateErrorMsg(msg) {
     return ("<li><i class='fas fa-times'></i>&nbsp;&nbsp;" + msg + "</li>");
 }
 
+setCaptchaToken(false);
+
 $( document ).ready(function() {
 
     setCaptchaToken(false);

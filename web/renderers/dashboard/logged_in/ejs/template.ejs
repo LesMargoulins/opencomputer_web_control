@@ -22,9 +22,9 @@
     <meta name="author" content="<%= author %>">
     <link rel="icon" type="image/png" href="/img/favicon.png" />
 
-    <link rel="stylesheet" href="css/bootstrap/bootstrap.css">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://malihu.github.io/custom-scrollbar/jquery.mCustomScrollbar.min.css">
+    <link rel="stylesheet" href="/css/bootstrap/bootstrap.css">
+    <link rel="stylesheet" href="/css/fontawesome-all.min.css">
+    <link rel="stylesheet" href="/css/jquery.mCustomScrollbar.min.css">
 
     <link rel="stylesheet" href="/loggedin/css/hamburgers/hamburgers.css">
     <link rel="stylesheet" href="/loggedin/css/spinkit/spinkit.css">
@@ -72,14 +72,15 @@
         </span>
     </div>
 
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha384-tsQFqpEReu7ZLhBV2VZlAu7zcOV+rXbYlF2cqB8txI/8aZajjp4Bqd+V6D5IgvKT" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="/js/jquery-3.4.0.min.js"></script>
+    <script src="/js/popper.min.js"></script>
+    <script src="/js/jquery.mask.min.js"></script>
     <script src="/js/bootstrap.min.js"></script>
 
     <script src="/loggedin/js/jquery.mousewheel.min.js"></script>
     <script src="/loggedin/js/jquery-asScrollbar.min.js"></script>
     <script src="/loggedin/js/jquery-asScrollable.min.js"></script>
-    <script src="https://malihu.github.io/custom-scrollbar/jquery.mCustomScrollbar.concat.min.js"></script>
+    <script src="/js/jquery.mCustomScrollbar.concat.min.js"></script>
 
     <script src="/loggedin/js/sidebar.js"></script>
     <script src="/loggedin/js/modal.js"></script>
@@ -94,11 +95,6 @@
     <% } %>
 
     <script src="/loggedin/js/loadscreen.js"></script>
-
-    <script src="/js/socket.io.js"></script>
-    <script>
-    var socket = io.connect('dashboard.presta.com:3000');
-    </script>
 
 </body>
 </html>

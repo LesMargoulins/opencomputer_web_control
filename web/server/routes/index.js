@@ -56,6 +56,9 @@ module.exports = function() {
     function callRenderers(renderarray, domain = undefined, host = undefined) {
         var router = express.Router();
         for (var i = 0; i < renderarray.length; i++) {
+            if (fs.existsSync(path.join(renderarray[i].path, "/system.js"))) {
+                require(path.join(renderarray[i].path, "/system.js"))();
+            }
             if (renderarray[i].container == true) {
                 callRenderers(renderarray[i].content, renderarray[i].subdomain, renderarray[i].vhost);
             }
@@ -78,7 +81,6 @@ module.exports = function() {
     server.listen(config.port, function () {
         config.loaded = true;
         debug.logSuccess('Server listening on port ' + config.port, "SUCCESS", true);
-        debug.detail("", true);
     })
 
 };

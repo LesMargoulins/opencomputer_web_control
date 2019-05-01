@@ -40,5 +40,10 @@ module.exports = function() {
         return true;
     };
 
+    this.isNormalInteger = function(str) {
+      var n = Math.floor(Number(str));
+      return n !== Infinity && String(n) === str && n >= 0;
+    }
+
     this.sleep = require('util').promisify(setTimeout); //ASYNC
 }
