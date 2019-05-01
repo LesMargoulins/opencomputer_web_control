@@ -9,6 +9,7 @@ module.exports = function() {
     this.secretconfig = {
         //Does the server use SSL
         ssl: false,
+        trustproxy: false,
 
         //Session secret
         sessionSecret: "session module secret", //DO NOT SHARE

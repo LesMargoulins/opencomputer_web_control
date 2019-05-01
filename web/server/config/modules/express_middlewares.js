@@ -19,7 +19,7 @@ module.exports = function() {
     debug.detail("    > express-session");
 
     //TODO: Check later for ssl and SQL storage: https://github.com/expressjs/session
-    if (secretconfig.ssl)
+    if (secretconfig.trustproxy)
         app.set('trust proxy', 1) // trust first proxy for ssl
 
     this.session = require('express-session');
