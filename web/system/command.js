@@ -95,6 +95,14 @@ module.exports = function() {
         return true;
     });
 
+    this.command.create("coupon", "Generate a coupon code", (command) => {
+        if (command[0].toLowerCase() != "coupon")
+            return (false);
+        var coupon = generateCoupon(30, "-");
+        debug.detail(clc.yellow(coupon), true);
+        return (true);
+    });
+
     stdin.addListener("data", function(d) {
         if (!config.loaded)
             return;
