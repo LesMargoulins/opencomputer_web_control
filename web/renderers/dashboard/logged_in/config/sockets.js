@@ -173,7 +173,9 @@ module.exports = function() {
 
     });
 
-    tcpserver.listen(1337, '127.0.0.1', () => {
-        debug.logSuccess('TCP Socket listening on port ' + 1337, "SUCCESS", true);
+    var ocPort = 8098;
+
+    tcpserver.listen(ocPort, '127.0.0.1', () => {
+        debug.logSuccess('TCP Socket listening on port ' + ocPort, "SUCCESS", true);
     });
 }
