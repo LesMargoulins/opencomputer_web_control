@@ -175,7 +175,7 @@ module.exports = function() {
 
     var ocPort = 8098;
 
-    tcpserver.listen(ocPort, '127.0.0.1', () => {
+    tcpserver.listen(ocPort, config.ip, () => {
         debug.logSuccess('TCP Socket listening on port ' + ocPort, "SUCCESS", true);
     });
 }
