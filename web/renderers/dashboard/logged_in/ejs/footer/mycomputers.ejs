@@ -1,1 +1,31 @@
 <script src="/loggedin/js/mycomputers.js"></script>
+<script src="/js/socket.io.js"></script>
+<script>
+    var socket = io.connect('dashboard.presta.com:3000');
+
+    function setComputerState(computer_id, status_id) {
+        var disabledClass = statusClass(status_id);
+        if (disabledClass == "")
+            $(".computer_" + computer_id).removeClass("disabled");
+        else
+            $(".computer_" + computer_id).addClass(disabledClass);
+        $(".computerIco_" + computer_id).attr('src', computerImage(status_id));
+        $(".computerInfo_" + computer_id).removeClass("danger success info off unknown").addClass(flagClass(status_id));
+        $(".computerStatus_" + computer_id).text(getStatus(status_id));
+    }
+
+    socket.on('disconnect', function (data) {
+        var status_id = 1;
+        $(".computerdiv").each(function () {
+            var computer_id = $(this).attr("targetid");
+            setComputerState(computer_id, status_id);
+        });
+    });
+
+    socket.on('status_changed', function (data) {
+        console.log(data);
+        var computer_id = data.id;
+        var status_id = data.status;
+        setComputerState(computer_id, status_id);
+    });
+</script>
