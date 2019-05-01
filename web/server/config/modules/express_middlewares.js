@@ -19,8 +19,8 @@ module.exports = function() {
     debug.detail("    > express-session");
 
     //TODO: Check later for ssl and SQL storage: https://github.com/expressjs/session
-    if (secretconfig.trustproxy)
-        app.set('trust proxy', 1) // trust first proxy for ssl
+    /*if (secretconfig.trustproxy)
+        app.set('trust proxy', 1) // trust first proxy for ssl*/
 
     this.session = require('express-session');
 
@@ -36,7 +36,12 @@ module.exports = function() {
         secret: secretconfig.sessionSecret,
         resave: false,
         saveUninitialized: true,
-        cookie: { secure: secretconfig.ssl }//True for ssl
+        rolling: true,
+        proxy: secretconfig.trustproxy,
+        cookie: {
+            httpOnly: secretconfig.ssl,
+            secure: secretconfig.ssl,
+        }//True for ssl
     });
 
     app.use(session);
