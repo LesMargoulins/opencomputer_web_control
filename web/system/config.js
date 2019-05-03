@@ -7,7 +7,7 @@ module.exports = function() {
     this.config = {
         //Current version of the project
         version: "0.1",
-        ip: '127.0.0.1',
+        ip: '188.165.222.43',
 
         name: "Project Name",
 
