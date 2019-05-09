@@ -14,7 +14,7 @@ router.use(sassMiddleware({
 }));
 
 //USING STATIC FILES:
-router.use("/", express.static(path.join(__dirname, '../src')));
+router.use("/", express.static(path.join(__dirname, '../src'), { maxAge: 60 * 1000 * 60 * 24 * 365 }));
 
 //DEFAULT ROUTING VALUES:
 router.use(function (req, res, next) {

@@ -11,6 +11,6 @@ router.use(sassMiddleware({
     prefix:  '/css'  // Where prefix is at <link rel="stylesheets" href="prefix/style.css"/>
 }));
 
-router.use("/", express.static(path.join(__dirname, '../src')));
+router.use("/", express.static(path.join(__dirname, '../src'), { maxAge: 60 * 1000 * 60 * 24 * 365 }));
 
 module.exports = router;
