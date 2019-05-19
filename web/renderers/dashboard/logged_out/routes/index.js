@@ -19,7 +19,7 @@ router.use(sassMiddleware({
 }));
 
 //Logged out static files
-router.use("/loggedout", express.static(path.join(__dirname, '../src')));
+router.use("/loggedout", express.static(path.join(__dirname, '../src'), { maxAge: 60 * 1000 * 60 * 24 * 365 }));
 
 router.use(function (req, res, next) {
     res.locals.page = false;
