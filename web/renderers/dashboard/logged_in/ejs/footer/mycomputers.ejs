@@ -1,7 +1,7 @@
 <script src="/loggedin/js/mycomputers.js"></script>
 <script src="/js/socket.io.js"></script>
 <script>
-    var socket = io.connect('dashboard.laloix.com');
+    var socket = io.connect('dashboard.presta.com:3000');
 
     function setComputerState(computer_id, status_id) {
         var disabledClass = statusClass(status_id);

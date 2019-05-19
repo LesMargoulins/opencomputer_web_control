@@ -125,6 +125,12 @@ module.exports = function() {
 
         //socket.pipe(socket);
 
+        //just added
+        socket.on("error", function (err) {
+            console.log("Socket error: ");
+            console.log(err.stack);
+        });
+
         socket.on('data', function (data) {
             //broadcast(socket.name + "> " + data, socket);
             data = data.toString('utf8');

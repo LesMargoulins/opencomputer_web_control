@@ -2,6 +2,6 @@
     "id": "dashboard",
     "order": 0,
     "container": true,
-    "vhost": "dashboard.laloix.com",
+    "vhost": "dashboard.presta.com",
     "subdomain": null
 }
